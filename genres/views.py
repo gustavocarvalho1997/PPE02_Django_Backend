@@ -35,3 +35,9 @@ def genre_detail_view(request, pk):
             {'id': genre.id, 'name': genre.name},
             status=200
         )
+    elif request.method == 'DELETE':
+        genre.delete()
+        return JsonResponse(
+            {'message': 'Gênero excluído com sucesso'},
+            status=204
+        )
